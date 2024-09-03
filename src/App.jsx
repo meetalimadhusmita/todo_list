@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { NewTodoForm } from "./NewTodoForm";
 import "./styles.css";
 import { TodoList } from "./TodoList";
+import Footer from './Footer';
 
 export default function App() {
+ 
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
@@ -54,10 +56,15 @@ export default function App() {
           {isDarkMode ? "Light Mode" : "Dark Mode"}
         </button>
       </div>
+      <div className="App">
+      {/* Your existing components and content */}
+      <Footer />
+    </div>
       </header>
       <NewTodoForm onSubmit={addTodo} />
       <h1 className="header">To-do List</h1>
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
-    </div>
+    </div>    
   );
+  
 }
